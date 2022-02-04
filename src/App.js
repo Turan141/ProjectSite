@@ -4,7 +4,7 @@ function App() {
 
     return (
         <div>
-               <h1>necesen cankam</h1>
+               <h1>necesddden cankam</h1>
         </div>
     );
 }
