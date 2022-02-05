@@ -7,16 +7,18 @@
 .UserDiv {
   display: flex;
   justify-content: center;
-  max-width: 600px;
-  min-width: 50%;
+  max-width: 400px;
+  min-width: 40%;
 }
 .UserUl {
   text-decoration: none;
   list-style: none;
-  width: 420px;
+  min-width: 50%;
+  max-width: 90%;
 }
 .UserLi {
   background-color: #f3f3f3;
+  min-width: 50%;
   margin-top: 24px;
   border-radius: 8px;
   font-family: Roboto;
@@ -37,4 +39,10 @@
   color: #4b51ef;
   border: none;
   background-color: none;
+}
+
+.Spinner {
+  position: relative;
+  left: 10%;
+  top: 100px;
 }

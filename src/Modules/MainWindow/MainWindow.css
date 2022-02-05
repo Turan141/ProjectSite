@@ -1,9 +1,10 @@
 .MainWindow {
   display: flex;
-  min-width: 400px;
+  min-width: 50%;
   min-height: 500px;
 }
 
 * {
   box-size: border-box;
+  overflow-x: hidden;
 }
