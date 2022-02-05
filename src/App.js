@@ -1,12 +1,9 @@
-import './App.css';
+import React from "react";
+import MainWindow from "./Modules/MainWindow/MainWindow";
+import "./App.css";
 
 function App() {
-
-    return (
-        <div>
-               <h1>necesddden cankam</h1>
-        </div>
-    );
+  return <MainWindow />;
 }
 
 export default App;

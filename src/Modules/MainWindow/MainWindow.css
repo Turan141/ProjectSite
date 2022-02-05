@@ -1,0 +1,10 @@
+.MainWindow {
+  display: flex;
+  min-width: 400px;
+  min-height: 500px;
+  border: 2px solid black;
+}
+
+* {
+  box-size: border-box;
+}

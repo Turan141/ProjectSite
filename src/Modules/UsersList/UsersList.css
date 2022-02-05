@@ -1,0 +1,7 @@
+.UsersList {
+  display: flex;
+  justify-content: center;
+  min-width: 50%;
+  min-height: 100%;
+  padding-left: 20px;
+}
