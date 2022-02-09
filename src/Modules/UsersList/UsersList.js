@@ -1,11 +1,16 @@
 import React from "react";
 import "./UsersList.css";
-import { Bars } from "react-loader-spinner";
 
 class UsersList extends React.Component {
   constructor() {
     super();
-    this.state = { data: [], isLoading: true };
+    this.state = { data: [], isLoading: true, userInfo: [] };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.setState({ userInfo: e });
+    console.log(this.state.userInfo);
   }
 
   async componentDidMount() {
@@ -24,7 +29,7 @@ class UsersList extends React.Component {
     if (this.state.isLoading) {
       return (
         <div className="Spinner">
-          <Bars color="#00BFFF" height={200} width={200} />
+          <div className="loader"></div>
         </div>
       );
     }
@@ -40,7 +45,9 @@ class UsersList extends React.Component {
               Город: {el.address.city}
               <br></br>
               Компания: {el.company.name}
-              <button className="userBtn">Подробнее</button>
+              <button onClick={this.handleClick} className="userBtn">
+                Подробнее
+              </button>
             </li>
           ))}
           <p>Найдено {this.state.data.length} элементов</p>

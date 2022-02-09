@@ -7,14 +7,9 @@ function UserPage() {
       <div className="UserPageUp"></div>
       <div className="UserPageInfoMain">
         <section className="info">
-          <form>
-            <input type="text" value="salam">
-              salam
-            </input>
-          </form>
+          <form></form>
         </section>
       </div>
-      <button>Send</button>
     </div>
   );
 }
