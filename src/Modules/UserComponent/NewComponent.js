@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./NewComponent.css";
 
 export default class NewComponent extends React.Component {
@@ -8,7 +8,7 @@ export default class NewComponent extends React.Component {
 
     this.state = {
       disabled: true,
-      props: props,
+      props: props.props,
       propsName: props.props.name,
       propsUsername: props.props.username,
       propsEmail: props.props.email,
@@ -26,7 +26,7 @@ export default class NewComponent extends React.Component {
       <div className="main">
         <div className="innerMain">
           <form className="formClass">
-            <p>Name</p>
+            <label>Name</label>
             <input
               type="text"
               disabled={this.state.disabled}
@@ -35,7 +35,7 @@ export default class NewComponent extends React.Component {
                 this.setState({ propsName: e.target.value });
               }}
             ></input>
-            <p>User Name</p>
+            <label>User Name</label>
             <input
               type="text"
               disabled={this.state.disabled}
@@ -44,16 +44,16 @@ export default class NewComponent extends React.Component {
                 this.setState({ propsUsername: e.target.value });
               }}
             ></input>
-            <p>Email</p>
+            <label>Email</label>
             <input
-              type="text"
+              type="email"
               disabled={this.state.disabled}
               value={this.state.propsEmail}
               onChange={(e) => {
                 this.setState({ propsEmail: e.target.value });
               }}
             ></input>
-            <p>Street</p>
+            <label>Street</label>
             <input
               type="text"
               disabled={this.state.disabled}
@@ -66,10 +66,24 @@ export default class NewComponent extends React.Component {
               onClick={(e) => {
                 e.preventDefault();
                 this.setState({ disabled: false });
-                console.log(this.state.props);
               }}
             >
               Unlock
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                let jsonData = {
+                  propsName: this.state.propsName,
+                  propsUsername: this.state.propsUsername,
+                  propsEmail: this.state.propsEmail,
+                  propsStreet: this.state.propsStreet,
+                };
+                jsonData = JSON.stringify(jsonData);
+                console.log(jsonData);
+              }}
+            >
+              Send
             </button>
             <button>Close</button>
           </form>
