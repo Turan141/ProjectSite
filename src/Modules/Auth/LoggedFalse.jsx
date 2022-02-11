@@ -1,5 +1,6 @@
 import React from "react";
 import "./auth.css";
+import LoggedTrue from "./LoggedTrue";
 
 export default function LoginWindow() {
   let user;
@@ -23,10 +24,13 @@ export default function LoginWindow() {
               );
             } else {
               for (var key in localStorageKeys) {
-                JSON.stringify(user.value) == key &&
-                JSON.stringify(password.value) == localStorageKeys[key]
-                  ? console.log("ok")
-                  : console.log("bad");
+                if (
+                  JSON.stringify(user.value) == key &&
+                  JSON.stringify(password.value) == localStorageKeys[key]
+                ) {
+                  localStorage.setItem("isLogged", true);
+                  window.location.reload();
+                } else console.log("bad");
               }
             }
           }}

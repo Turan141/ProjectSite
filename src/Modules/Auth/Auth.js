@@ -6,7 +6,10 @@ import WelcomeWindow from "./LoggedTrue";
 class AuthMainWindow extends React.Component {
   constructor() {
     super();
-    this.state = { isLoggedIn: false, userName: "Turan" };
+    this.state = {
+      isLoggedIn: localStorage.getItem("isLogged"),
+      userName: "User",
+    };
   }
 
   render() {
