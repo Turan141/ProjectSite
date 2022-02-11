@@ -1,44 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import "./auth.css";
+import LoginWindow from "./LoggedFalse";
+import WelcomeWindow from "./LoggedTrue";
 
 class AuthMainWindow extends React.Component {
-  state = {
-    user: "",
-    rememberMe: false,
-  };
-
-  handleChange = (event) => {
-    const input = event.target;
-    const value = input.type === "checkbox" ? input.checked : input.value;
-
-    this.setState({ [input.name]: value });
-  };
-
-  handleFormSubmit = () => {
-    const { user, rememberMe } = this.state;
-    localStorage.setItem("rememberMe", rememberMe);
-    localStorage.setItem("user", rememberMe ? user : "");
-  };
-  componentDidMount() {
-    const rememberMe = localStorage.getItem("rememberMe") === "true";
-    const user = rememberMe ? localStorage.getItem("user") : "";
-    this.setState({ user, rememberMe });
+  constructor() {
+    super();
+    this.state = { isLoggedIn: false, userName: "Turan" };
   }
+
   render() {
     return (
-      <div className="AuthMainWindow">
-        <form onSubmit={this.handleFormSubmit}>
-          <label>
-            Имя:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Пароль:
-            <input type="password" name="password" />
-          </label>
-          <button type="submit">Login</button>
-        </form>
-      </div>
+      <>
+        {this.state.isLoggedIn ? (
+          <WelcomeWindow props={this.state.userName} />
+        ) : (
+          <LoginWindow />
+        )}
+      </>
     );
   }
 }

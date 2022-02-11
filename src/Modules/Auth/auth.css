@@ -3,9 +3,9 @@
   flex-direction: column;
   border: 2px black solid;
   margin: 50px 10px 0 10px;
-  max-width: 90%;
+  max-width: 80%;
   border-radius: 10px;
-  background-color: white;
+  background-color: #gray;
 }
 
 .AuthMainWindow form {
@@ -26,4 +26,10 @@
   font-size: 15px;
   max-width: 90%;
   color: black;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
